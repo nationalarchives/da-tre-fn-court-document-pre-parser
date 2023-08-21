@@ -2,19 +2,52 @@ package uk.gov.nationalarchives.tre
 
 import io.circe.generic.semiauto.deriveEncoder
 import io.circe.generic.auto._
+import io.circe.syntax.EncoderOps
 import io.circe.{Decoder, Encoder, parser}
+import uk.gov.nationalarchives.common.messages.Producer.TRE
 import uk.gov.nationalarchives.common.messages.{Producer, Properties}
-import uk.gov.nationalarchives.da.messages.courtdocumentpackage.available.{CourtDocumentPackageAvailable, Status}
+import uk.gov.nationalarchives.da.messages.request.courtdocument.parse.{Parameters, ParserInstructions, RequestCourtDocumentParse}
+import uk.gov.nationalarchives.tre.messages.bag.validate.{BagValidate, ConsignmentType}
+
+import java.time.Instant
+import java.util.UUID
 
 object MessageParsingUtils {
-  // Sample codecs for CourtDocumentPackageAvailable
   implicit val propertiesEncoder: Encoder[Properties] = deriveEncoder[Properties]
   implicit val producerEncoder: Encoder[Producer.Value] = Encoder.encodeEnumeration(Producer)
   implicit val producerDecoder: Decoder[Producer.Value] = Decoder.decodeEnumeration(Producer)
-  implicit val statusEncoder: Encoder[Status.Value] = Encoder.encodeEnumeration(Status)
-  implicit val statusDecoder: Decoder[Status.Value] = Decoder.decodeEnumeration(Status)
+  implicit val consignmentTypeEncoder: Encoder[ConsignmentType.Value] = Encoder.encodeEnumeration(ConsignmentType)
+  implicit val consignmentTypeDecoder: Decoder[ConsignmentType.Value] = Decoder.decodeEnumeration(ConsignmentType)
+  implicit val courtDocumentPackagePrepareEncoder: Encoder[RequestCourtDocumentParse] = deriveEncoder[RequestCourtDocumentParse]
 
-  // Example TRE message parsing
-  def parseCourtDocumentPackageAvailableMessage(message: String): CourtDocumentPackageAvailable =
-    parser.decode[CourtDocumentPackageAvailable](message).fold(error => throw new RuntimeException(error), identity)
+  def parseBagValidateMessage(message: String): BagValidate =
+    parser.decode[BagValidate](message).fold(error => throw new RuntimeException(error), identity)
+
+  def requestCourtDocumentParseJsonString(
+    environmentPrefix: String,
+    reference: String,
+    originator: Option[String],
+    inputDocumentPath: String,
+    bagValidateExecutionId: String,
+    uuid:  String = UUID.randomUUID().toString,
+    timestamp: String = Instant.now().toString
+  ): String = {
+    RequestCourtDocumentParse(
+      properties = Properties(
+        messageType = "uk.gov.nationalarchives.da.messages.request.courtdocument.parse.RequestCourtDocumentParse",
+        timestamp = timestamp,
+        function = "da-tre-fn-court-document-pre-parser",
+        producer = TRE,
+        executionId = uuid,
+        parentExecutionId = Some(bagValidateExecutionId)
+      ),
+      parameters = Parameters(
+        s3Bucket = s"$environmentPrefix-tre-common-data",
+        s3Key = inputDocumentPath,
+        reference = reference,
+        originator = originator,
+        parserInstructions = ParserInstructions(documentType = "")
+      )
+    ).asJson.toString
+  }
 }
