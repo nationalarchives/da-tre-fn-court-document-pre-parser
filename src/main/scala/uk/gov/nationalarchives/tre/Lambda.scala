@@ -4,8 +4,7 @@ import com.amazonaws.services.lambda.runtime.events.SNSEvent
 import com.amazonaws.services.lambda.runtime.{Context, RequestHandler}
 import software.amazon.awssdk.regions.Region
 import software.amazon.awssdk.services.s3.S3Client
-import uk.gov.nationalarchives.tre.MessageParsingUtils.{parseBagValidateMessage, requestCourtDocumentParseJsonString}
-import uk.gov.nationalarchives.tre.messages.bag.validate.BagValidate
+import uk.gov.nationalarchives.tre.MessageParsingUtils.parseBagValidateMessage
 
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 
