@@ -3,13 +3,13 @@ package uk.gov.nationalarchives.tre
 import uk.gov.nationalarchives.tre.MessageParsingUtils.requestCourtDocumentParseJsonString
 import uk.gov.nationalarchives.tre.messages.bag.validate.BagValidate
 
-class BagValidateMessageHandler(s3Utils: S3Utils, environmentPrefix: String) {
+class BagValidateMessageHandler(s3Utils: S3Utils) {
 
   def handleBagValidate(bagValidate: BagValidate): String = {
     getInputDocumentPath(bagValidate) match {
       case Some(inputDocumentPath) =>
         requestCourtDocumentParseJsonString(
-          environmentPrefix = environmentPrefix,
+          s3Bucket = bagValidate.parameters.s3Bucket,
           reference = bagValidate.parameters.reference,
           originator = bagValidate.parameters.originator,
           inputDocumentPath = inputDocumentPath,

@@ -44,12 +44,12 @@ class BagValidateMessageHandlerSpec extends AnyFlatSpec with MockitoSugar {
 
   val s3Utils = new S3Utils(s3Client)
 
-  val messageHandler = new BagValidateMessageHandler(s3Utils = s3Utils, environmentPrefix = "test")
+  val messageHandler = new BagValidateMessageHandler(s3Utils = s3Utils)
 
   "BagValidateMessageHandler" should "return a RequestCourtDocumentParse message with the correct input file location" in {
     val requestCourtDocumentParseString = messageHandler.handleBagValidate(requestWithInputData.bagValidateMessage)
     JsonPath.read[String](requestCourtDocumentParseString, "$.properties.messageType") should be ("uk.gov.nationalarchives.da.messages.request.courtdocument.parse.RequestCourtDocumentParse")
-    JsonPath.read[String](requestCourtDocumentParseString, "$.parameters.s3Bucket") should be ("test-tre-common-data")
+    JsonPath.read[String](requestCourtDocumentParseString, "$.parameters.s3Bucket") should be ("tre-common-data")
     JsonPath.read[String](requestCourtDocumentParseString, "$.parameters.s3Key") should be ("TDR-2023-X1/001/TDR-2023-X1/data/test.docx")
   }
 

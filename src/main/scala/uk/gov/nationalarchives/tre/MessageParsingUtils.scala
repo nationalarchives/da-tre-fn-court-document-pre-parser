@@ -24,9 +24,9 @@ object MessageParsingUtils {
     parser.decode[BagValidate](message).fold(error => throw new RuntimeException(error), identity)
 
   def requestCourtDocumentParseJsonString(
-    environmentPrefix: String,
     reference: String,
     originator: Option[String],
+    s3Bucket: String,
     inputDocumentPath: String,
     bagValidateExecutionId: String,
     uuid:  String = UUID.randomUUID().toString,
@@ -42,7 +42,7 @@ object MessageParsingUtils {
         parentExecutionId = Some(bagValidateExecutionId)
       ),
       parameters = Parameters(
-        s3Bucket = s"$environmentPrefix-tre-common-data",
+        s3Bucket = s3Bucket,
         s3Key = inputDocumentPath,
         reference = reference,
         originator = originator,
