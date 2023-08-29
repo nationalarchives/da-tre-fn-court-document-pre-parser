@@ -34,7 +34,7 @@ object MessageParsingUtils {
   ): String = {
     RequestCourtDocumentParse(
       properties = Properties(
-        messageType = "uk.gov.nationalarchives.tre.messages.courtdocument.parse.RequestCourtDocumentParse",
+        messageType = "uk.gov.nationalarchives.tre.messages.request.courtdocument.parse.RequestCourtDocumentParse",
         timestamp = timestamp,
         function = "da-tre-fn-court-document-pre-parser",
         producer = TRE,
