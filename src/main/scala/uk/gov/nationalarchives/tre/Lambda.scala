@@ -12,6 +12,7 @@ class Lambda extends RequestHandler[SNSEvent, String] {
   val s3Utils = new S3Utils(S3Client.builder().region(Region.EU_WEST_2).build())
 
   override def handleRequest(event: SNSEvent, context: Context): String = {
+    throw new Exception("Something has gone terribly wrong")
     event.getRecords.asScala.toList match {
       case snsRecord :: Nil =>
         context.getLogger.log(s"Received SNS message: ${snsRecord.getSNS.getMessage}\n")
