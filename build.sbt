@@ -33,7 +33,7 @@ libraryDependencies ++= Seq(
   "software.amazon.awssdk" % "sso" % awsVersion,
   "software.amazon.awssdk" % "ssooidc" % awsVersion,
   "com.typesafe.play" %% "play-json" % "2.10.0-RC6",
-  "com.jayway.jsonpath" % "json-path" % "2.6.0"
+  "com.jayway.jsonpath" % "json-path" % "2.8.0"
 )
 
 val circeVersion = "0.14.2"
