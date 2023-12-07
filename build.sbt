@@ -36,7 +36,7 @@ libraryDependencies ++= Seq(
   "com.jayway.jsonpath" % "json-path" % "2.6.0"
 )
 
-val circeVersion = "0.14.2"
+val circeVersion = "0.14.3"
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core",
   "io.circe" %% "circe-generic",
