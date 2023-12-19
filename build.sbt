@@ -22,7 +22,7 @@ assemblyMergeStrategy in assembly := {
 libraryDependencies ++= Seq(
   "io.cucumber" %% "cucumber-scala" % "8.19.0" % Test,
   "io.cucumber" % "cucumber-junit" % "7.14.1" % Test,
-  "io.cucumber" % "cucumber-core" % "7.11.2" % Test,
+  "io.cucumber" % "cucumber-core" % "7.15.0" % Test,
   "com.novocode" % "junit-interface" % "0.11" % Test,
   "org.scalatest" %% "scalatest" % "3.2.17" % Test,
   "org.scalatestplus" %% "mockito-4-11" % "3.2.17.0" % Test,
