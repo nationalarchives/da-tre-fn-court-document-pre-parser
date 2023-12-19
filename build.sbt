@@ -28,11 +28,11 @@ libraryDependencies ++= Seq(
   "org.scalatestplus" %% "mockito-4-11" % "3.2.17.0" % Test,
   "uk.gov.nationalarchives" % "da-transform-schemas" % "2.5",
   "com.amazonaws" % "aws-lambda-java-events" % "3.11.4",
-  "com.typesafe.play" %% "play-json" % "2.10.3",
+  "org.playframework" %% "play-json" % "3.0.1",
   "software.amazon.awssdk" % "s3" % awsVersion,
   "software.amazon.awssdk" % "sso" % awsVersion,
   "software.amazon.awssdk" % "ssooidc" % awsVersion,
-  "com.typesafe.play" %% "play-json" % "2.10.3",
+  "org.playframework" %% "play-json" % "3.0.1",
   "com.jayway.jsonpath" % "json-path" % "2.8.0",
   "io.circe" %% "circe-generic-extras" % "0.14.3"
 )
