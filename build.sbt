@@ -33,7 +33,7 @@ libraryDependencies ++= Seq(
   "software.amazon.awssdk" % "s3" % awsVersion,
   "software.amazon.awssdk" % "sso" % awsVersion,
   "software.amazon.awssdk" % "ssooidc" % awsVersion,
-  "org.playframework" %% "play-json" % "3.0.2",
+  "org.playframework" %% "play-json" % "3.0.3",
   "com.jayway.jsonpath" % "json-path" % "2.9.0",
   "io.circe" %% "circe-generic-extras" % "0.14.3"
 )
