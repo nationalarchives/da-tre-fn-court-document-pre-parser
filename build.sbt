@@ -3,7 +3,7 @@ import Dependencies._
 ThisBuild / scalaVersion := "2.13.16"
 ThisBuild / version := "0.1.0"
 
-val awsVersion = "2.33.10"
+val awsVersion = "2.33.13"
 
 lazy val root = (project in file("."))
   .settings(
@@ -20,9 +20,9 @@ assemblyMergeStrategy in assembly := {
 }
 
 libraryDependencies ++= Seq(
-  "io.cucumber" % "cucumber-core" % "7.28.2" % Test,
-  "io.cucumber" % "cucumber-junit" % "7.28.2" % Test,
-  "io.cucumber" %% "cucumber-scala" % "8.32.2" % Test,
+  "io.cucumber" % "cucumber-core" % "7.29.0" % Test,
+  "io.cucumber" % "cucumber-junit" % "7.29.0" % Test,
+  "io.cucumber" %% "cucumber-scala" % "8.33.0" % Test,
   "io.cucumber" % "cucumber-core" % "7.11.2" % Test,
   "com.novocode" % "junit-interface" % "0.11" % Test,
   "org.scalatest" %% "scalatest" % "3.2.19" % Test,
