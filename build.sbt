@@ -1,9 +1,9 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.17"
+ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / version := "0.1.0"
 
-val awsVersion = "2.35.11"
+val awsVersion = "2.39.3"
 
 lazy val root = (project in file("."))
   .settings(
@@ -20,9 +20,9 @@ assemblyMergeStrategy in assembly := {
 }
 
 libraryDependencies ++= Seq(
-  "io.cucumber" % "cucumber-core" % "7.30.0" % Test,
-  "io.cucumber" % "cucumber-junit" % "7.30.0" % Test,
-  "io.cucumber" %% "cucumber-scala" % "8.35.0" % Test,
+  "io.cucumber" % "cucumber-core" % "7.32.0" % Test,
+  "io.cucumber" % "cucumber-junit" % "7.32.0" % Test,
+  "io.cucumber" %% "cucumber-scala" % "8.36.0" % Test,
   "io.cucumber" % "cucumber-core" % "7.11.2" % Test,
   "com.novocode" % "junit-interface" % "0.11" % Test,
   "org.scalatest" %% "scalatest" % "3.2.19" % Test,
@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
   "software.amazon.awssdk" % "sso" % awsVersion,
   "software.amazon.awssdk" % "ssooidc" % awsVersion,
   "org.playframework" %% "play-json" % "3.0.6",
-  "com.jayway.jsonpath" % "json-path" % "2.9.0",
+  "com.jayway.jsonpath" % "json-path" % "2.10.0",
   "io.circe" %% "circe-generic-extras" % "0.14.4"
 )
 
