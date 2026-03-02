@@ -3,7 +3,7 @@ import Dependencies._
 ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / version := "0.1.0"
 
-val awsVersion = "2.41.32"
+val awsVersion = "2.41.34"
 
 lazy val root = (project in file("."))
   .settings(
@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
   "software.amazon.awssdk" % "sso" % awsVersion,
   "software.amazon.awssdk" % "ssooidc" % awsVersion,
   "org.playframework" %% "play-json" % "3.0.6",
-  "com.jayway.jsonpath" % "json-path" % "2.10.0",
+  "com.jayway.jsonpath" % "json-path" % "3.0.0",
   "io.circe" %% "circe-generic-extras" % "0.14.4"
 )
 
