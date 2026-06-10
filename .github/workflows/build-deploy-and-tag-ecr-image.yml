@@ -8,7 +8,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
-    uses: nationalarchives/da-tre-github-actions/.github/workflows/docker-build-and-ecr-deploy-with-wiz-scan.yml@110559c0bbef60ed4a81ff8f66f22f1bcef67fd6 # v0.0.82
+    uses: nationalarchives/da-tre-github-actions/.github/workflows/docker-build-and-ecr-deploy-with-wiz-scan.yml@c9627f7195689c971fba8017c74005264bb490ba # v0.0.83
     with:
       docker_image_name: 'da-tre-fn-court-document-pre-parser'
       build_dir: '.'
