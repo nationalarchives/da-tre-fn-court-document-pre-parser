@@ -3,7 +3,7 @@ import Dependencies._
 ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / version := "0.1.0"
 
-val awsVersion = "2.49.6"
+val awsVersion = "2.56.0"
 
 lazy val root = (project in file("."))
   .settings(
@@ -22,12 +22,12 @@ assembly / assemblyMergeStrategy := {
 libraryDependencies ++= Seq(
   "io.cucumber" % "cucumber-core" % "7.34.9" % Test,
   "io.cucumber" % "cucumber-junit" % "7.34.9" % Test,
-  "io.cucumber" %% "cucumber-scala" % "8.39.7" % Test,
+  "io.cucumber" %% "cucumber-scala" % "8.39.8" % Test,
   "io.cucumber" % "cucumber-core" % "7.11.2" % Test,
   "com.novocode" % "junit-interface" % "0.11" % Test,
   "org.scalatest" %% "scalatest" % "3.2.20" % Test,
   "org.scalatestplus" %% "mockito-4-11" % "3.2.18.0" % Test,
-  "uk.gov.nationalarchives" % "da-transform-schemas" % "2.14",
+  "uk.gov.nationalarchives" % "da-transform-schemas" % "2.15",
   "com.amazonaws" % "aws-lambda-java-events" % "3.16.1",
   "org.playframework" %% "play-json" % "3.0.1",
   "software.amazon.awssdk" % "s3" % awsVersion,
@@ -38,7 +38,7 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-generic-extras" % "0.14.4"
 )
 
-val circeVersion = "0.14.16"
+val circeVersion = "0.14.17"
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core",
   "io.circe" %% "circe-generic",
