@@ -3,7 +3,16 @@ import Dependencies._
 ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / version := "0.1.0"
 
-val awsVersion = "2.56.0"
+val awsVersion = "2.59.4"
+val jacksonVersion = "2.18.12"
+
+dependencyOverrides ++= Seq(
+  "com.fasterxml.jackson.core" % "jackson-annotations",
+  "com.fasterxml.jackson.core" % "jackson-core",
+  "com.fasterxml.jackson.core" % "jackson-databind",
+  "com.fasterxml.jackson.datatype" % "jackson-datatype-jdk8",
+  "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310"
+).map(_ % jacksonVersion)
 
 lazy val root = (project in file("."))
   .settings(
@@ -22,14 +31,13 @@ assembly / assemblyMergeStrategy := {
 libraryDependencies ++= Seq(
   "io.cucumber" % "cucumber-core" % "8.1.0" % Test,
   "io.cucumber" % "cucumber-junit" % "8.1.0" % Test,
-  "io.cucumber" %% "cucumber-scala" % "8.39.8" % Test,
-  "io.cucumber" % "cucumber-core" % "7.11.2" % Test,
+  "io.cucumber" %% "cucumber-scala" % "9.3.0" % Test,
   "com.novocode" % "junit-interface" % "0.11" % Test,
   "org.scalatest" %% "scalatest" % "3.2.20" % Test,
   "org.scalatestplus" %% "mockito-4-11" % "3.2.18.0" % Test,
   "uk.gov.nationalarchives" % "da-transform-schemas" % "2.15",
   "com.amazonaws" % "aws-lambda-java-events" % "3.16.1",
-  "org.playframework" %% "play-json" % "3.0.1",
+  "org.playframework" %% "play-json" % "3.0.6",
   "software.amazon.awssdk" % "s3" % awsVersion,
   "software.amazon.awssdk" % "sso" % awsVersion,
   "software.amazon.awssdk" % "ssooidc" % awsVersion,
