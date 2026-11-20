@@ -32,7 +32,6 @@ libraryDependencies ++= Seq(
   "io.cucumber" % "cucumber-core" % "8.1.0" % Test,
   "io.cucumber" % "cucumber-junit" % "8.1.0" % Test,
   "io.cucumber" %% "cucumber-scala" % "9.3.0" % Test,
-  "io.cucumber" % "cucumber-core" % "8.1.0" % Test,
   "com.novocode" % "junit-interface" % "0.11" % Test,
   "org.scalatest" %% "scalatest" % "3.2.20" % Test,
   "org.scalatestplus" %% "mockito-4-11" % "3.2.18.0" % Test,
