@@ -4,7 +4,7 @@ ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / version := "0.1.0"
 
 val awsVersion = "2.59.4"
-val jacksonVersion = "2.18.12"
+val jacksonVersion = "2.23"
 
 dependencyOverrides ++= Seq(
   "com.fasterxml.jackson.core" % "jackson-annotations",
