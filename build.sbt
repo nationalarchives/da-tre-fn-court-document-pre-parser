@@ -3,7 +3,7 @@ import Dependencies._
 ThisBuild / scalaVersion := "2.13.18"
 ThisBuild / version := "0.1.0"
 
-val awsVersion = "2.59.4"
+val awsVersion = "2.59.11"
 val jacksonVersion = "2.18.12"
 
 dependencyOverrides ++= Seq(
